@@ -79,44 +79,44 @@
 </style>
 
 <div class="relative h-[64px]">
-  <div id="buttonContainer" class="flex items-center justify-center gap-4 transition-[gap] duration-200">
-    <button
+  <div id="buttonContainer" class="flex flex-col sm:flex-row items-center justify-center gap-4 transition-[gap] duration-200">
+    <button 
       id="requestAccess"
-      class="bg-stone-900 text-white px-6 py-3 rounded-md text-lg hover:bg-stone-800 active:scale-[0.98] active:bg-stone-700 transition-slide"
+      class="w-full sm:w-auto bg-stone-900 text-white px-6 py-3 rounded-md text-lg hover:bg-stone-800 active:scale-[0.98] active:bg-stone-700 transition-slide"
     >
       Request Early Access
     </button>
 
-    <a
-      id="playgroundLink"
-      href="/playground"
-      class="border border-stone-100 text-stone-900 px-6 py-3 rounded-md text-lg hover:bg-stone-50 active:scale-[0.98] active:bg-stone-100 active:border-stone-300 transition-slide"
+    <a 
+      id="playgroundLink" 
+      href="/playground" 
+      class="w-full sm:w-auto border border-stone-100 text-stone-900 px-6 py-3 rounded-md text-lg hover:bg-stone-50 active:scale-[0.98] active:bg-stone-100 active:border-stone-300 transition-slide text-center"
     >
       Interactive Playground
     </a>
 
-    <form
-      id="waitlistForm"
-      class="hidden opacity-0 scale-95 flex  border items-center bg-white rounded-[20px] shadow-lg overflow-hidden w-[440px] transition-all duration-200 ease-out"
+    <form 
+      id="waitlistForm" 
+      class="hidden opacity-0 scale-95 flex flex-col sm:flex-row items-stretch sm:items-center bg-white rounded-[20px] shadow-lg overflow-hidden w-full max-w-[440px] mx-auto transition-all duration-200 ease-out p-2 sm:p-0"
     >
       <input
         id="emailInput"
         type="email"
         placeholder="Email"
-        class="flex-1 px-6 py-3.5 text-lg text-stone-600 placeholder-stone-400 outline-none bg-stone-50/50"
+        class="flex-1 px-4 sm:px-6 py-3 text-lg text-stone-600 placeholder-stone-400 outline-none bg-stone-50/50 rounded-[14px] sm:rounded-none"
       />
-      <button
+      <button 
         type="submit"
-        class="bg-black text-white px-6 py-2.5 text-lg font-medium whitespace-nowrap mx-2 my-2 rounded-[14px] hover:opacity-90 active:scale-[0.98] transition-all duration-150"
+        class="bg-black text-white px-6 py-2.5 text-lg font-medium whitespace-nowrap mt-2 sm:mt-0 sm:mx-2 sm:my-2 rounded-[14px] hover:opacity-90 active:scale-[0.98] transition-all duration-150"
       >
         Join waitlist
       </button>
     </form>
   </div>
-
-  <a
-    href="#"
-    id="cancelLink"
+  
+  <a 
+    href="#" 
+    id="cancelLink" 
     class="hidden opacity-0 text-stone-500 hover:text-stone-700 text-sm absolute -bottom-8 left-1/2 -translate-x-1/2 transition-all duration-200"
   >
     Cancel
