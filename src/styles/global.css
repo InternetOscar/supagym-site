@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Innovator Grotesk";
+  src: url("/fonts/innovator-grotesk/InnovatorGroteskVF-VF.woff2")
+    format("woff2");
+  font-weight: 100 900; /* Variable font weight range */
+  font-display: swap; /* Optional but recommended for performance */
+}
+
+@font-face {
+  font-family: "Innovator Grotesk";
+  src: url("/fonts/innovator-grotesk/InnovatorGroteskVF-Thin.woff2")
+    format("woff2");
+  font-weight: 100;
+  font-display: swap;
+}
+
+body {
+  font-family: "Innovator Grotesk", sans-serif;
+}

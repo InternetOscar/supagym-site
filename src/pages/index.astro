@@ -1,0 +1,183 @@
+---
+// pages/index.astro
+import Badge from '../components/Badge.astro';
+import WaitlistButton from '../components/WaitlistButton.astro';
+---
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supagym - Modern Gym Management Platform</title>
+    <style>
+        @font-face {
+            font-family: 'Innovator Grotesk';
+            src: url('/fonts/InnovatorGrotesk-Variable.woff2') format('woff2-variations');
+            font-weight: 100 900;
+            font-display: swap;
+        }
+    </style>
+</head>
+<body class="bg-white font-innovator salt">
+<nav class="border-b">
+    <div class="max-w-5xl mx-auto px-6 font-regular">
+        <div class="flex justify-between items-center py-3">
+            {/* Logo */}
+            <div class="flex items-center gap-2">
+                <a href="#" class="text-black font-medium hover:text-gray-900 text-base">Supagym</a>
+                <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-lg text-sm">Coming Soon</span>
+            </div>
+
+            {/* Centered Navigation */}
+            <div class="hidden md:flex gap-6 absolute left-1/2 transform -translate-x-1/2">
+
+                <a href="#" class="text-stone-900 hover:text-gray-900 text-base">Product</a>
+                <a href="#" class="text-stone-900 hover:text-gray-900 text-base">Resources</a>
+                <a href="#" class="text-stone-900 hover:text-gray-900 text-base">Pricing</a>
+                <a href="#" class="text-stone-900 hover:text-gray-900 text-base">Playground</a>
+            </div>
+
+            {/* Actions */}
+            <div class="flex items-center gap-4">
+                <a href="#" class="text-gray-600 hover:text-gray-900 text-base">Sign in</a>
+                <button class="bg-black text-white px-4 py-2 rounded-md text-base">Try Now</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <main class="max-w-5xl mx-auto px-6">
+        <!-- Hero Section -->
+        <section class="text-center pt-16 pb-12">
+            <div class="mb-4">
+                <Badge text="Coming Soon" color="emerald" />
+            </div>
+            <h1 class="text-6xl font-bold text-stone-900 mb-8">Transform your gym's<br/>digital experience</h1>
+            <p class="text-black text-2xl mb-10">All-in-one platform for modern gym management—<br/>streamlined operations, enhanced member experience.</p>
+            <div class="mb-20">
+                <WaitlistButton />
+            </div>
+            <div class="rounded-lg p-6 bg-stone-50 mb-16">
+                <div class="w-full h-[420px]"></div>
+            </div>
+        </section>
+
+
+        <!-- Features Sections -->
+        <section class="space-y-24">
+            <!-- Smart Management -->
+            <div class="space-y-4">
+                <div class="max-w-2xl">
+                    <div class="mb-4">
+                        <Badge text="Smart Management" color="blue" />
+                    </div>
+                    <h2 class="text-4xl font-bold text-stone-900 mb-4">Run your gym smarter, not harder</h2>
+                    <p class="text-black text-xl">Automate administrative tasks, streamline member management, and get real-time insights into your gym's performance.</p>
+                </div>
+                <div class="rounded-lg bg-stone-50 p-6">
+                    <div class="w-full h-[420px]"></div>
+                </div>
+            </div>
+
+            <!-- Member Experience -->
+            <div class="space-y-4">
+                <div class="max-w-2xl">
+                    <div class="mb-4">
+                        <Badge text="Member Experience" color="purple" />
+                    </div>
+                    <h2 class="text-4xl font-bold text-stone-900 mb-4">Seamless access, better retention</h2>
+                    <p class="text-black text-xl">Digital entry, automated check-ins, and personalized member journeys that keep your community engaged and growing.</p>
+                </div>
+                <div class="rounded-lg bg-stone-50 p-6">
+                    <div class="w-full h-[380px]"></div>
+                </div>
+            </div>
+
+            <!-- AI Analytics -->
+            <div class="space-y-4">
+                <div class="max-w-2xl">
+                    <div class="mb-4">
+                        <Badge text="AI-Powered Analytics" color="green" />
+                    </div>
+                    <h2 class="text-4xl font-bold text-stone-900 mb-4">Data-driven decisions made simple</h2>
+                    <p class="text-black text-xl">Turn member data into actionable insights with our AI-powered analytics platform.</p>
+                </div>
+                <div class="rounded-lg bg-stone-50 p-6">
+                    <div class="w-full h-[380px] "></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="mt-24">
+            <h2 class="text-4xl font-bold text-stone-900 mb-8">Questions & Answers</h2>
+            <div class="space-y-4">
+                <details class="border-t border-stone-200 pt-4">
+                    <summary class="font-medium cursor-pointer text-xl text-black">How does the digital access system work?</summary>
+                    <p class="mt-2 text-black text-lg">Our system uses advanced NFC technology for seamless, keyless entry. Members can access your facility using their phone or smartwatch.</p>
+                </details>
+                <details class="border-t border-stone-200 pt-4">
+                    <summary class="font-medium cursor-pointer text-xl text-stone-900">Can I migrate from my current gym software?</summary>
+                    <p class="mt-2 text-black text-lg">Yes, we offer full migration support and can transfer your existing member data seamlessly to our platform.</p>
+                </details>
+                <details class="border-t border-stone-200 pt-4">
+                    <summary class="font-medium cursor-pointer text-xl text-stone-900">What support do you provide during setup?</summary>
+                    <p class="mt-2 text-black text-lg">We provide comprehensive onboarding support, including staff training, hardware setup, and ongoing technical assistance.</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="text-center mt-24 mb-24">
+            <h2 class="text-4xl font-bold text-stone-900 mb-8">Ready to update your gym?</h2>
+            <button class="bg-stone-900 text-white px-6 py-3 rounded-md text-lg hover:bg-stone-800 active:bg-stone-700 transition-colors">Request Early Access</button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 py-12">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                <div>
+                    <div class="mb-4 text-stone-900 font-medium">Supagym</div>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-stone-600 hover:text-stone-900 text-base">Twitter</a>
+                        <a href="#" class="text-stone-600 hover:text-stone-900 text-base">LinkedIn</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold text-stone-900 text-base mb-3">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-stone-600 hover:text-stone-900 text-base">About</a></li>
+                        <li><a href="#" class="text-stone-600 hover:text-stone-900 text-base">Careers</a></li>
+                        <li><a href="#" class="text-stone-600 hover:text-stone-900 text-base">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-stone-900 text-base mb-3">Product</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-stone-600 hover:text-stone-900 text-base">Features</a></li>
+                        <li><a href="#" class="text-stone-600 hover:text-stone-900 text-base">Integrations</a></li>
+                        <li><a href="#" class="text-stone-600 hover:text-stone-900 text-base">Enterprise</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-stone-900 text-base mb-3">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-stone-600 hover:text-stone-900 text-base">Documentation</a></li>
+                        <li><a href="#" class="text-stone-600 hover:text-stone-900 text-base">Security</a></li>
+                        <li><a href="#" class="text-stone-600 hover:text-stone-900 text-base">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-stone-900 text-base mb-3">Contact</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-stone-600 hover:text-stone-900 text-base">Sales</a></li>
+                        <li><a href="#" class="text-stone-600 hover:text-stone-900 text-base">Help center</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

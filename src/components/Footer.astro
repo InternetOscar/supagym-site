@@ -1,0 +1,119 @@
+---
+// Footer.astro
+const footerSections = [
+  {
+    title: 'PRODUCTS',
+    links: [
+      { text: 'Admin', href: '/admin' },
+      { text: 'Classes', href: '/classes' },
+      { text: 'Drive', href: '/drive' },
+      { text: 'Calendar', href: '/calendar' },
+      { text: 'Pricing', href: '/pricing' },
+      { text: 'Download', href: '/download' },
+      { text: 'Roadmap', href: '/roadmap' },
+    ]
+  },
+  {
+    title: 'RESOURCES',
+    links: [
+      { text: 'Documentation', href: '/wiki' },
+      { text: 'Help', href: '/help' },
+      { text: 'About us', href: '/about' },
+      // { text: 'Changelog', href: '/changelog' },
+      // { text: 'For startups', href: '/startups' },
+      // { text: 'Free online notepad', href: '/notepad' },
+      // { text: 'Videos', href: '/videos' },
+    ]
+  },
+  {
+    title: 'TECHNICAL',
+    links: [
+      { text: 'GitHub', href: '/github' },
+      // { text: 'Libraries', href: '/libraries' },
+      // { text: 'Skiff Crypto docs', href: '/crypto-docs' },
+      // { text: 'Skiff UI docs', href: '/ui-docs' },
+      { text: 'Whitepaper', href: '/whitepaper' },
+      { text: 'Report an issue', href: '/report' },
+      { text: 'Status', href: '/status' },
+    ]
+  },
+  {
+    title: 'LEARN',
+    links: [
+      { text: 'Email security', href: '/email-security' },
+      { text: 'Cloud storage', href: '/cloud-storage' },
+      { text: 'Quick Aliases', href: '/aliases' },
+    ]
+  },
+  {
+    title: 'LEGAL',
+    links: [
+      { text: 'Privacy policy', href: '/privacy' },
+      { text: 'Terms of service', href: '/terms' },
+      { text: 'Acceptable use policy', href: '/acceptable-use' },
+      { text: 'Transparency', href: '/transparency' },
+    ]
+  }
+];
+
+const socialLinks = [
+  { icon: 'twitter', href: 'https://twitter.com' },
+  { icon: 'discord', href: 'https://discord.com' },
+  { icon: 'github', href: 'https://github.com' },
+  { icon: 'linkedin', href: 'https://linkedin.com' },
+  { icon: 'youtube', href: 'https://youtube.com' },
+];
+---
+
+<footer class="border-t border-gray-100 bg-black py-16 -mt-40">
+  <div class="mx-auto px-6">
+    <!-- Top section with logo and social -->
+    <div class="mb-12 flex items-center justify-between">
+      <a href="/" class="mr-8">
+        <img src="/logo.svg" alt="Logo" class="h-8 w-auto" />
+      </a>
+      <div class="flex space-x-6">
+        {socialLinks.map(({ icon, href }) => (
+          <a
+            href={href}
+            class="text-gray-400 hover:text-gray-600"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class={`fab fa-${icon} text-lg`}></i>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Navigation Grid -->
+    <div class="grid grid-cols-6 gap-8">
+      {footerSections.map((section) => (
+        <div class="flex flex-col">
+          <h3 class="mb-4 text-xs font-normal text-gray-500">
+            {section.title}
+          </h3>
+          <ul class="space-y-2">
+            {section.links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-sm font-light text-gray-600 hover:text-gray-900"
+                >
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-12">
+      <p class="text-xs font-light text-gray-400">
+        © 2024. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
