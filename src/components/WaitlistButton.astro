@@ -3,25 +3,40 @@
 ---
 
 <script>
+  // Desktop interactions
   const button = document.getElementById('requestAccess');
   const playground = document.getElementById('playgroundLink');
-  const form = document.getElementById('waitlistForm');
+  const desktopForm = document.getElementById('desktopForm');
   const buttonContainer = document.getElementById('buttonContainer');
   const cancelLink = document.getElementById('cancelLink');
+  
+  const showDesktopForm = () => {
+    buttonContainer?.classList.remove('gap-4');
+    button?.classList.add('opacity-0', 'translate-x-[-20px]');
+    playground?.classList.add('opacity-0', 'translate-x-[20px]');
+    
+    setTimeout(() => {
+      button?.classList.add('hidden');
+      playground?.classList.add('hidden');
+      desktopForm?.classList.remove('hidden');
+      cancelLink?.classList.remove('hidden');
+      setTimeout(() => {
+        desktopForm?.classList.remove('opacity-0', 'scale-95');
+        cancelLink?.classList.remove('opacity-0');
+      }, 50);
+    }, 200);
+  };
 
   const showButtons = () => {
-    // Hide form first
-    form?.classList.add('opacity-0', 'scale-95');
+    desktopForm?.classList.add('opacity-0', 'scale-95');
     cancelLink?.classList.add('opacity-0');
-
-    // Wait for fade out, then switch display
+    
     setTimeout(() => {
-      form?.classList.add('hidden');
+      desktopForm?.classList.add('hidden');
       cancelLink?.classList.add('hidden');
       button?.classList.remove('hidden');
       playground?.classList.remove('hidden');
-
-      // Trigger fade in for buttons
+      
       setTimeout(() => {
         buttonContainer?.classList.add('gap-4');
         button?.classList.remove('opacity-0', 'translate-x-[-20px]');
@@ -30,45 +45,10 @@
     }, 200);
   };
 
-  const showForm = () => {
-    // Start transition
-    buttonContainer?.classList.remove('gap-4');
-    button?.classList.add('opacity-0', 'translate-x-[-20px]');
-    playground?.classList.add('opacity-0', 'translate-x-[20px]');
-
-    // Wait for fade out, then switch display
-    setTimeout(() => {
-      button?.classList.add('hidden');
-      playground?.classList.add('hidden');
-      form?.classList.remove('hidden');
-      cancelLink?.classList.remove('hidden');
-      // Trigger fade in
-      setTimeout(() => {
-        form?.classList.remove('opacity-0', 'scale-95');
-        cancelLink?.classList.remove('opacity-0');
-      }, 50);
-    }, 200);
-
-    const input = document.getElementById('emailInput');
-    input?.focus();
-  };
-
-  button?.addEventListener('click', showForm);
+  button?.addEventListener('click', showDesktopForm);
   cancelLink?.addEventListener('click', (e) => {
     e.preventDefault();
     showButtons();
-  });
-
-  // Handle outside clicks
-  document.addEventListener('click', (e) => {
-    const formElement = document.getElementById('waitlistForm');
-    const requestButton = document.getElementById('requestAccess');
-
-    if (!formElement?.contains(e.target as Node) &&
-        !requestButton?.contains(e.target as Node) &&
-        !formElement?.classList.contains('hidden')) {
-      showButtons();
-    }
   });
 </script>
 
@@ -78,7 +58,8 @@
   }
 </style>
 
-<div class="relative h-[52px] sm:h-[52px]">
+<!-- Desktop Version (hidden on mobile) -->
+<div class="relative h-[52px] hidden sm:block">
   <div id="buttonContainer" class="flex items-center justify-center gap-4 transition-[gap] duration-200">
     <button 
       id="requestAccess"
@@ -96,25 +77,20 @@
     </a>
 
     <form 
-      id="waitlistForm" 
-      class="hidden opacity-0 scale-95 sm:flex sm:flex-row items-center bg-white rounded-[20px] shadow-lg overflow-hidden w-[90vw] sm:w-[440px] transition-all duration-200 ease-out max-w-[440px]"
+      id="desktopForm" 
+      class="hidden opacity-0 scale-95 flex items-center bg-white rounded-[20px] shadow-lg overflow-hidden w-[440px] transition-all duration-200 ease-out"
     >
-      <div class="flex flex-col w-full sm:flex-row sm:items-center">
-        <input
-          id="emailInput"
-          type="email"
-          placeholder="Email"
-          class="w-full px-6 py-3.5 text-lg text-stone-600 placeholder-stone-400 outline-none bg-stone-50/50"
-        />
-        <div class="p-2 sm:p-0">
-          <button 
-            type="submit"
-            class="w-full sm:w-auto bg-black text-white px-6 py-2.5 text-lg font-medium whitespace-nowrap sm:mx-2 sm:my-2 rounded-[14px] hover:opacity-90 active:scale-[0.98] transition-all duration-150"
-          >
-            Join waitlist
-          </button>
-        </div>
-      </div>
+      <input
+        type="email"
+        placeholder="Email"
+        class="flex-1 px-6 py-3.5 text-lg text-stone-600 placeholder-stone-400 outline-none bg-stone-50/50"
+      />
+      <button 
+        type="submit"
+        class="bg-black text-white px-6 py-2.5 text-lg font-medium whitespace-nowrap mx-2 my-2 rounded-[14px] hover:opacity-90 active:scale-[0.98] transition-all duration-150"
+      >
+        Join waitlist
+      </button>
     </form>
   </div>
   
@@ -126,3 +102,63 @@
     Cancel
   </a>
 </div>
+
+<!-- Mobile Version (hidden on desktop) -->
+<div class="block sm:hidden space-y-4">
+  <button 
+    id="mobileRequestAccess"
+    class="w-full bg-stone-900 text-white px-6 py-3 rounded-md text-lg hover:bg-stone-800 active:scale-[0.98] active:bg-stone-700 transition-slide"
+  >
+    Request Early Access
+  </button>
+
+  <a 
+    href="/playground" 
+    class="block w-full border border-stone-100 text-stone-900 px-6 py-3 rounded-md text-lg text-center hover:bg-stone-50 active:scale-[0.98] active:bg-stone-100 active:border-stone-300 transition-slide"
+  >
+    Interactive Playground
+  </a>
+
+  <div class="fixed inset-0 bg-white/80 backdrop-blur-sm hidden" id="mobileFormOverlay">
+    <div class="min-h-screen flex flex-col px-4 py-12">
+      <form class="space-y-4 w-full max-w-md mx-auto">
+        <input
+          type="email"
+          placeholder="Email"
+          class="w-full px-6 py-4 text-lg text-stone-600 placeholder-stone-400 outline-none bg-white rounded-[20px] shadow-lg"
+        />
+        <button 
+          type="submit"
+          class="w-full bg-black text-white px-6 py-4 text-lg font-medium rounded-[20px] hover:opacity-90 active:scale-[0.98] transition-all duration-150"
+        >
+          Join waitlist
+        </button>
+      </form>
+      <button class="mt-4 text-stone-500">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mobile interactions
+  const mobileButton = document.getElementById('mobileRequestAccess');
+  const mobileOverlay = document.getElementById('mobileFormOverlay');
+  
+  mobileButton?.addEventListener('click', () => {
+    mobileOverlay?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  });
+
+  mobileOverlay?.addEventListener('click', (e) => {
+    if (e.target === mobileOverlay) {
+      mobileOverlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  });
+
+  const mobileCancelButton = mobileOverlay?.querySelector('button[class*="mt-4"]');
+  mobileCancelButton?.addEventListener('click', () => {
+    mobileOverlay?.classList.add('hidden');
+    document.body.style.overflow = '';
+  });
+</script>
