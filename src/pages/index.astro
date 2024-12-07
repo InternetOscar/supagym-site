@@ -18,29 +18,28 @@ import WaitlistButton from '../components/WaitlistButton.astro';
         }
     </style>
 </head>
-<body class="bg-white font-innovator salt">
+<body class="bg-white font-innovator tracking-wide">
 <nav class="border-b">
-    <div class="max-w-5xl mx-auto px-6 font-regular">
+    <div class="w-full md:max-w-5xl mx-auto px-3 md:px-6">
         <div class="flex justify-between items-center py-3">
             {/* Logo */}
             <div class="flex items-center gap-2">
-                <a href="#" class="text-black font-medium hover:text-gray-900 text-base">Supagym</a>
-                <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-lg text-sm">Coming Soon</span>
+                <a href="#" class="text-black font-semibold text-lg">Supagym</a>
+                <span class="bg-stone-100 text-stone-500/90 px-2 py-0.5 rounded-lg text-sm font-medium">Coming Soon</span>
             </div>
 
             {/* Centered Navigation */}
             <div class="hidden md:flex gap-6 absolute left-1/2 transform -translate-x-1/2">
 
-                <a href="#" class="text-stone-900 hover:text-gray-900 text-base">Product</a>
-                <a href="#" class="text-stone-900 hover:text-gray-900 text-base">Resources</a>
-                <a href="#" class="text-stone-900 hover:text-gray-900 text-base">Pricing</a>
-                <a href="#" class="text-stone-900 hover:text-gray-900 text-base">Playground</a>
+                <a href="#" class="text-stone-600 hover:text-stone-900 text-base">Solutions</a>
+                <a href="#" class="text-stone-600 hover:text-stone-900 text-base">Resources</a>
+                <a href="#" class="text-stone-600 hover:text-stone-900 text-base">Pricing</a>
             </div>
 
             {/* Actions */}
-            <div class="flex items-center gap-4">
-                <a href="#" class="text-gray-600 hover:text-gray-900 text-base">Sign in</a>
-                <button class="bg-black text-white px-4 py-2 rounded-md text-base">Try Now</button>
+            <div class="flex items-center gap-4 text-sm">
+                <a href="#" class="text-stone-600 hover:text-stone-900 hidden md:block">Playground</a>
+                <button class="bg-black text-white px-4 py-1 rounded-md shadow-lg">Join Waitlist</button>
             </div>
         </div>
     </div>
@@ -55,7 +54,7 @@ import WaitlistButton from '../components/WaitlistButton.astro';
             <h1 class="text-6xl font-bold text-stone-900 mb-8">Transform your gym's<br/>digital experience</h1>
             <p class="text-black text-2xl mb-10">All-in-one platform for modern gym management—<br/>streamlined operations, enhanced member experience.</p>
             <div class="mb-20">
-                <WaitlistButton />
+                <WaitlistButton variant='playground'/>
             </div>
             <div class="rounded-lg p-6 bg-stone-50 mb-16">
                 <div class="w-full h-[420px]"></div>
@@ -130,7 +129,7 @@ import WaitlistButton from '../components/WaitlistButton.astro';
         <!-- CTA Section -->
         <section class="text-center mt-24 mb-24">
             <h2 class="text-4xl font-bold text-stone-900 mb-8">Ready to update your gym?</h2>
-            <button class="bg-stone-900 text-white px-6 py-3 rounded-md text-lg hover:bg-stone-800 active:bg-stone-700 transition-colors">Request Early Access</button>
+            <WaitlistButton/>
         </section>
     </main>
 
