@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-j7pv25f6> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Supagym - Modern Gym Management Platform</title><link rel="stylesheet" href="/_astro/index.DXjucAwQ.css"></head> <body class="bg-white font-innovator tracking-wide" data-astro-cid-j7pv25f6> <nav class="border-b" data-astro-cid-j7pv25f6> <div class="w-full md:max-w-5xl mx-auto px-3 md:px-6" data-astro-cid-j7pv25f6> <div class="flex justify-between items-center py-3" data-astro-cid-j7pv25f6>  <div class="flex items-center gap-2" data-astro-cid-j7pv25f6> <a href="#" class="text-black font-semibold text-lg" data-astro-cid-j7pv25f6>Supagym</a> <span class="bg-stone-100 text-stone-500/90 px-2 py-0.5 rounded-lg text-sm font-medium" data-astro-cid-j7pv25f6>Coming Soon</span> </div>  <div class="hidden md:flex gap-6 absolute left-1/2 transform -translate-x-1/2" data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Solutions</a> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Resources</a> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Pricing</a> </div>  <div class="flex items-center gap-4 text-sm" data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 hidden md:block" data-astro-cid-j7pv25f6>Playground</a> <button class="bg-black text-white px-4 py-1 rounded-md shadow-lg" data-astro-cid-j7pv25f6>Join Waitlist</button> </div> </div> </div> </nav> <main class="max-w-5xl mx-auto px-6" data-astro-cid-j7pv25f6> <!-- Hero Section --> <section class="text-center pt-16 pb-12" data-astro-cid-j7pv25f6> <div class="mb-4" data-astro-cid-j7pv25f6> <span class="inline-flex items-center rounded-lg px-3 py-1 text-md text-opacity-80 bg-emerald-100 text-emerald-700"> Coming Soon </span> </div> <h1 class="text-6xl font-bold text-stone-900 mb-8" data-astro-cid-j7pv25f6>
+Transform your gym's<br data-astro-cid-j7pv25f6>digital experience
+</h1> <p class="text-black text-2xl mb-10" data-astro-cid-j7pv25f6>
+All-in-one platform for modern gym management—<br data-astro-cid-j7pv25f6>streamlined operations, enhanced
+					member experience.
+</p> <div class="mb-20" data-astro-cid-j7pv25f6> <script>(function(){const instanceId = "e1944302-7340-4d84-aeaf-a428c407aa3f";
+const variant = "playground";
+
+	document.addEventListener("DOMContentLoaded", () => {
+		// Desktop functionality remains the same...
+		const button = document.getElementById(`requestAccess-${instanceId}`);
+		const playground = document.getElementById(`playgroundLink-${instanceId}`);
+		const desktopForm = document.getElementById(`desktopForm-${instanceId}`);
+		const cancelLink = document.getElementById(`cancelLink-${instanceId}`);
+
+		// Desktop handlers...
+		const showDesktopForm = () => {
+			button?.classList.add("hidden");
+			playground?.classList.add("hidden");
+			desktopForm?.classList.remove("hidden");
+			cancelLink?.classList.remove("hidden");
+
+			setTimeout(() => {
+				desktopForm?.classList.remove("opacity-0", "scale-95");
+				cancelLink?.classList.remove("opacity-0");
+				const input = document.getElementById(`emailInput-${instanceId}`);
+				input?.focus();
+			}, 50);
+		};
+
+		const showButtons = () => {
+			desktopForm?.classList.add("opacity-0", "scale-95");
+			cancelLink?.classList.add("opacity-0");
+
+			setTimeout(() => {
+				desktopForm?.classList.add("hidden");
+				cancelLink?.classList.add("hidden");
+				button?.classList.remove("hidden");
+				playground?.classList.remove("hidden");
+			}, 200);
+		};
+
+		// Mobile functionality
+		const mobileButton = document.getElementById(`mobileRequestAccess-${instanceId}`);
+		const mobileForm = document.getElementById(`mobileForm-${instanceId}`);
+		const mobileCancelBtn = document.getElementById(`mobileCancelBtn-${instanceId}`);
+		const playgroundButton = document.getElementById(`mobilePlayground-${instanceId}`);
+
+		const showMobileForm = () => {
+			mobileButton?.classList.add("hidden");
+			playgroundButton?.classList.add("hidden"); // Hide playground button
+			mobileForm?.classList.remove("hidden");
+			setTimeout(() => {
+				mobileForm?.classList.remove("opacity-0", "scale-95");
+				const mobileInput = mobileForm?.querySelector("input");
+				mobileInput?.focus();
+			}, 50);
+		};
+
+		const hideMobileForm = () => {
+			mobileForm?.classList.add("opacity-0", "scale-95");
+			setTimeout(() => {
+				mobileForm?.classList.add("hidden");
+				mobileButton?.classList.remove("hidden");
+				playgroundButton?.classList.remove("hidden"); // Show playground button
+			}, 200);
+		};
+
+		button?.addEventListener("click", showDesktopForm);
+		cancelLink?.addEventListener("click", (e) => {
+			e.preventDefault();
+			showButtons();
+		});
+
+		mobileButton?.addEventListener("click", showMobileForm);
+		mobileCancelBtn?.addEventListener("click", (e) => {
+			e.preventDefault();
+			hideMobileForm();
+		});
+
+		// Outside click handlers - Modified to remove TypeScript
+		document.addEventListener("click", (e) => {
+			const target = e.target;
+
+			// Desktop form outside click
+			if (desktopForm && !desktopForm.classList.contains("hidden")) {
+				if (!desktopForm.contains(target) && target !== button) {
+					showButtons();
+				}
+			}
+
+			// Mobile form outside click
+			if (mobileForm && !mobileForm.classList.contains("hidden")) {
+				if (!mobileForm.contains(target) && target !== mobileButton) {
+					hideMobileForm();
+				}
+			}
+		});
+
+		// Prevent form clicks from triggering outside click
+		desktopForm?.addEventListener("click", (e) => e.stopPropagation());
+		mobileForm?.addEventListener("click", (e) => e.stopPropagation());
+	});
+})();</script> <div class="relative h-[64px] hidden sm:block"> <div id="buttonContainer-e1944302-7340-4d84-aeaf-a428c407aa3f" class="flex items-center justify-center gap-4"> <button id="requestAccess-e1944302-7340-4d84-aeaf-a428c407aa3f" class="bg-stone-900 text-white px-6 py-2 rounded-md text-lg hover:bg-stone-800 active:scale-[0.98] active:bg-stone-700 transition-all duration-200">
+Request Early Access
+</button> <a id="playgroundLink-e1944302-7340-4d84-aeaf-a428c407aa3f" href="/playground" class="border border-stone-100 text-stone-900 px-6 py-2 rounded-md text-lg hover:bg-stone-50 active:scale-[0.98] active:bg-stone-100 active:border-stone-300 transition-all duration-200">
+Interactive Playground
+</a> <form id="desktopForm-e1944302-7340-4d84-aeaf-a428c407aa3f" class="hidden opacity-0 scale-95 flex border items-center bg-white rounded-lg shadow-lg overflow-hidden w-[440px] transition-all duration-200 ease-out"> <input id="emailInput-e1944302-7340-4d84-aeaf-a428c407aa3f" type="email" placeholder="Email" class="flex-1 px-6 py-0.5 text-lg text-stone-600 placeholder-stone-400 outline-none bg-stone-50/50"> <button type="submit" class="bg-black text-white px-6 py-1.5 text-lg font-medium whitespace-nowrap mx-2 my-2 rounded-lg hover:opacity-90 active:scale-[0.98] transition-all duration-150">
+Join waitlist
+</button> </form> </div> <a href="#" id="cancelLink-e1944302-7340-4d84-aeaf-a428c407aa3f" class="hidden opacity-0 text-stone-500 hover:text-stone-700 text-sm absolute -bottom-8 left-1/2 -translate-x-1/2 transition-all duration-200">
+Cancel
+</a> </div> <!-- Mobile Version --> <div class="block sm:hidden"> <div class="h-[180px] sm:h-[52px]"> <div class="space-y-4"> <button id="mobileRequestAccess-e1944302-7340-4d84-aeaf-a428c407aa3f" class="w-full bg-stone-900 text-white px-6 py-3 rounded-md text-lg hover:bg-stone-800 active:scale-[0.98] active:bg-stone-700 transition-all duration-200">
+Request Early Access
+</button> <a id="mobilePlayground-e1944302-7340-4d84-aeaf-a428c407aa3f" href="/playground" class="block w-full border border-stone-100 text-stone-900 px-6 py-3 rounded-md text-lg text-center hover:bg-stone-50 active:scale-[0.98] active:bg-stone-100 active:border-stone-300 transition-all duration-200">
+Interactive Playground
+</a> <div id="mobileForm-e1944302-7340-4d84-aeaf-a428c407aa3f" class="hidden opacity-0 scale-95 transition-all duration-200 space-y-4"> <input type="email" placeholder="Email" class="w-full px-6 py-3 border text-lg text-stone-600 placeholder-stone-400 outline-none bg-white rounded-lg shadow-sm"> <button type="submit" class="w-full bg-black text-white px-6 py-3 text-lg font-medium rounded-lg hover:opacity-90 active:scale-[0.98] transition-all duration-150">
+Request Early Access
+</button> <button id="mobileCancelBtn-e1944302-7340-4d84-aeaf-a428c407aa3f" type="button" class="w-full text-stone-500 py-2 text-sm">
+Cancel
+</button> </div> </div> </div> </div> </div> <div class="rounded-lg p-6 bg-stone-50 mb-16" data-astro-cid-j7pv25f6> <div class="w-full h-[420px]" data-astro-cid-j7pv25f6></div> </div> </section> <!-- Features Sections --> <section class="space-y-24" data-astro-cid-j7pv25f6> <!-- Smart Management --> <div class="space-y-4" data-astro-cid-j7pv25f6> <div class="max-w-2xl" data-astro-cid-j7pv25f6> <div class="mb-4" data-astro-cid-j7pv25f6> <span class="inline-flex items-center rounded-lg px-3 py-1 text-md text-opacity-80 bg-blue-100 text-blue-700"> Smart Management </span> </div> <h2 class="text-4xl font-bold text-stone-900 mb-4" data-astro-cid-j7pv25f6>
+Run your gym smarter, not harder
+</h2> <p class="text-black text-xl" data-astro-cid-j7pv25f6>
+Automate administrative tasks, streamline member management, and get real-time
+							insights into your gym's performance.
+</p> </div> <div class="rounded-lg bg-stone-50 p-6" data-astro-cid-j7pv25f6> <div class="w-full h-[420px]" data-astro-cid-j7pv25f6></div> </div> </div> <!-- Member Experience --> <div class="space-y-4" data-astro-cid-j7pv25f6> <div class="max-w-2xl" data-astro-cid-j7pv25f6> <div class="mb-4" data-astro-cid-j7pv25f6> <span class="inline-flex items-center rounded-lg px-3 py-1 text-md text-opacity-80 bg-purple-100 text-purple-700"> Member Experience </span> </div> <h2 class="text-4xl font-bold text-stone-900 mb-4" data-astro-cid-j7pv25f6>
+Seamless access, better retention
+</h2> <p class="text-black text-xl" data-astro-cid-j7pv25f6>
+Digital entry, automated check-ins, and personalized member journeys that keep
+							your community engaged and growing.
+</p> </div> <div class="rounded-lg bg-stone-50 p-6" data-astro-cid-j7pv25f6> <div class="w-full h-[380px]" data-astro-cid-j7pv25f6></div> </div> </div> <!-- AI Analytics --> <div class="space-y-4" data-astro-cid-j7pv25f6> <div class="max-w-2xl" data-astro-cid-j7pv25f6> <div class="mb-4" data-astro-cid-j7pv25f6> <span class="inline-flex items-center rounded-lg px-3 py-1 text-md text-opacity-80 bg-green-100 text-green-700"> AI-Powered Analytics </span> </div> <h2 class="text-4xl font-bold text-stone-900 mb-4" data-astro-cid-j7pv25f6>
+Data-driven decisions made simple
+</h2> <p class="text-black text-xl" data-astro-cid-j7pv25f6>
+Turn member data into actionable insights with our AI-powered analytics
+							platform.
+</p> </div> <div class="rounded-lg bg-stone-50 p-6" data-astro-cid-j7pv25f6> <div class="w-full h-[380px]" data-astro-cid-j7pv25f6></div> </div> </div> </section> <!-- FAQ Section --> <section class="mt-24" data-astro-cid-j7pv25f6> <h2 class="text-4xl font-bold text-stone-900 mb-8" data-astro-cid-j7pv25f6>Questions & Answers</h2> <div class="space-y-4" data-astro-cid-j7pv25f6> <details class="border-t border-stone-200 pt-4" data-astro-cid-j7pv25f6> <summary class="font-medium cursor-pointer text-xl text-black" data-astro-cid-j7pv25f6>How does the digital access system work?</summary> <p class="mt-2 text-black text-lg" data-astro-cid-j7pv25f6>
+Our system uses advanced NFC technology for seamless, keyless entry. Members
+							can access your facility using their phone or smartwatch.
+</p> </details> <details class="border-t border-stone-200 pt-4" data-astro-cid-j7pv25f6> <summary class="font-medium cursor-pointer text-xl text-stone-900" data-astro-cid-j7pv25f6>Can I migrate from my current gym software?</summary> <p class="mt-2 text-black text-lg" data-astro-cid-j7pv25f6>
+Yes, we offer full migration support and can transfer your existing member data
+							seamlessly to our platform.
+</p> </details> <details class="border-t border-stone-200 pt-4" data-astro-cid-j7pv25f6> <summary class="font-medium cursor-pointer text-xl text-stone-900" data-astro-cid-j7pv25f6>What support do you provide during setup?</summary> <p class="mt-2 text-black text-lg" data-astro-cid-j7pv25f6>
+We provide comprehensive onboarding support, including staff training, hardware
+							setup, and ongoing technical assistance.
+</p> </details> </div> </section> <!-- CTA Section --> <section class="text-center mt-24 mb-24" data-astro-cid-j7pv25f6> <h2 class="text-4xl font-bold text-stone-900 mb-8" data-astro-cid-j7pv25f6>Ready to update your gym?</h2> <script>(function(){const instanceId = "89a6e532-ad2e-488a-8125-0d0e883e62bf";
+const variant = "default";
+
+	document.addEventListener("DOMContentLoaded", () => {
+		// Desktop functionality remains the same...
+		const button = document.getElementById(`requestAccess-${instanceId}`);
+		const playground = document.getElementById(`playgroundLink-${instanceId}`);
+		const desktopForm = document.getElementById(`desktopForm-${instanceId}`);
+		const cancelLink = document.getElementById(`cancelLink-${instanceId}`);
+
+		// Desktop handlers...
+		const showDesktopForm = () => {
+			button?.classList.add("hidden");
+			playground?.classList.add("hidden");
+			desktopForm?.classList.remove("hidden");
+			cancelLink?.classList.remove("hidden");
+
+			setTimeout(() => {
+				desktopForm?.classList.remove("opacity-0", "scale-95");
+				cancelLink?.classList.remove("opacity-0");
+				const input = document.getElementById(`emailInput-${instanceId}`);
+				input?.focus();
+			}, 50);
+		};
+
+		const showButtons = () => {
+			desktopForm?.classList.add("opacity-0", "scale-95");
+			cancelLink?.classList.add("opacity-0");
+
+			setTimeout(() => {
+				desktopForm?.classList.add("hidden");
+				cancelLink?.classList.add("hidden");
+				button?.classList.remove("hidden");
+				playground?.classList.remove("hidden");
+			}, 200);
+		};
+
+		// Mobile functionality
+		const mobileButton = document.getElementById(`mobileRequestAccess-${instanceId}`);
+		const mobileForm = document.getElementById(`mobileForm-${instanceId}`);
+		const mobileCancelBtn = document.getElementById(`mobileCancelBtn-${instanceId}`);
+		const playgroundButton = document.getElementById(`mobilePlayground-${instanceId}`);
+
+		const showMobileForm = () => {
+			mobileButton?.classList.add("hidden");
+			playgroundButton?.classList.add("hidden"); // Hide playground button
+			mobileForm?.classList.remove("hidden");
+			setTimeout(() => {
+				mobileForm?.classList.remove("opacity-0", "scale-95");
+				const mobileInput = mobileForm?.querySelector("input");
+				mobileInput?.focus();
+			}, 50);
+		};
+
+		const hideMobileForm = () => {
+			mobileForm?.classList.add("opacity-0", "scale-95");
+			setTimeout(() => {
+				mobileForm?.classList.add("hidden");
+				mobileButton?.classList.remove("hidden");
+				playgroundButton?.classList.remove("hidden"); // Show playground button
+			}, 200);
+		};
+
+		button?.addEventListener("click", showDesktopForm);
+		cancelLink?.addEventListener("click", (e) => {
+			e.preventDefault();
+			showButtons();
+		});
+
+		mobileButton?.addEventListener("click", showMobileForm);
+		mobileCancelBtn?.addEventListener("click", (e) => {
+			e.preventDefault();
+			hideMobileForm();
+		});
+
+		// Outside click handlers - Modified to remove TypeScript
+		document.addEventListener("click", (e) => {
+			const target = e.target;
+
+			// Desktop form outside click
+			if (desktopForm && !desktopForm.classList.contains("hidden")) {
+				if (!desktopForm.contains(target) && target !== button) {
+					showButtons();
+				}
+			}
+
+			// Mobile form outside click
+			if (mobileForm && !mobileForm.classList.contains("hidden")) {
+				if (!mobileForm.contains(target) && target !== mobileButton) {
+					hideMobileForm();
+				}
+			}
+		});
+
+		// Prevent form clicks from triggering outside click
+		desktopForm?.addEventListener("click", (e) => e.stopPropagation());
+		mobileForm?.addEventListener("click", (e) => e.stopPropagation());
+	});
+})();</script> <div class="relative h-[64px] hidden sm:block"> <div id="buttonContainer-89a6e532-ad2e-488a-8125-0d0e883e62bf" class="flex items-center justify-center gap-4"> <button id="requestAccess-89a6e532-ad2e-488a-8125-0d0e883e62bf" class="bg-stone-900 text-white px-6 py-2 rounded-md text-lg hover:bg-stone-800 active:scale-[0.98] active:bg-stone-700 transition-all duration-200">
+Request Early Access
+</button>  <form id="desktopForm-89a6e532-ad2e-488a-8125-0d0e883e62bf" class="hidden opacity-0 scale-95 flex border items-center bg-white rounded-lg shadow-lg overflow-hidden w-[440px] transition-all duration-200 ease-out"> <input id="emailInput-89a6e532-ad2e-488a-8125-0d0e883e62bf" type="email" placeholder="Email" class="flex-1 px-6 py-0.5 text-lg text-stone-600 placeholder-stone-400 outline-none bg-stone-50/50"> <button type="submit" class="bg-black text-white px-6 py-1.5 text-lg font-medium whitespace-nowrap mx-2 my-2 rounded-lg hover:opacity-90 active:scale-[0.98] transition-all duration-150">
+Join waitlist
+</button> </form> </div> <a href="#" id="cancelLink-89a6e532-ad2e-488a-8125-0d0e883e62bf" class="hidden opacity-0 text-stone-500 hover:text-stone-700 text-sm absolute -bottom-8 left-1/2 -translate-x-1/2 transition-all duration-200">
+Cancel
+</a> </div> <!-- Mobile Version --> <div class="block sm:hidden"> <div class="h-[180px] sm:h-[52px]"> <div class="space-y-4"> <button id="mobileRequestAccess-89a6e532-ad2e-488a-8125-0d0e883e62bf" class="w-full bg-stone-900 text-white px-6 py-3 rounded-md text-lg hover:bg-stone-800 active:scale-[0.98] active:bg-stone-700 transition-all duration-200">
+Request Early Access
+</button>  <div id="mobileForm-89a6e532-ad2e-488a-8125-0d0e883e62bf" class="hidden opacity-0 scale-95 transition-all duration-200 space-y-4"> <input type="email" placeholder="Email" class="w-full px-6 py-3 border text-lg text-stone-600 placeholder-stone-400 outline-none bg-white rounded-lg shadow-sm"> <button type="submit" class="w-full bg-black text-white px-6 py-3 text-lg font-medium rounded-lg hover:opacity-90 active:scale-[0.98] transition-all duration-150">
+Request Early Access
+</button> <button id="mobileCancelBtn-89a6e532-ad2e-488a-8125-0d0e883e62bf" type="button" class="w-full text-stone-500 py-2 text-sm">
+Cancel
+</button> </div> </div> </div> </div> </section> </main> <!-- Footer --> <footer class="border-t border-stone-200 py-12" data-astro-cid-j7pv25f6> <div class="max-w-5xl mx-auto px-6" data-astro-cid-j7pv25f6> <div class="grid grid-cols-2 md:grid-cols-5 gap-8" data-astro-cid-j7pv25f6> <div data-astro-cid-j7pv25f6> <div class="mb-4 text-stone-900 font-medium" data-astro-cid-j7pv25f6>Supagym</div> <div class="flex gap-4" data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Twitter</a> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>LinkedIn</a> </div> </div> <div data-astro-cid-j7pv25f6> <h3 class="font-bold text-stone-900 text-base mb-3" data-astro-cid-j7pv25f6>Company</h3> <ul class="space-y-2" data-astro-cid-j7pv25f6> <li data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>About</a> </li> <li data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Careers</a> </li> <li data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Blog</a> </li> </ul> </div> <div data-astro-cid-j7pv25f6> <h3 class="font-bold text-stone-900 text-base mb-3" data-astro-cid-j7pv25f6>Product</h3> <ul class="space-y-2" data-astro-cid-j7pv25f6> <li data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Features</a> </li> <li data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Integrations</a> </li> <li data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Enterprise</a> </li> </ul> </div> <div data-astro-cid-j7pv25f6> <h3 class="font-bold text-stone-900 text-base mb-3" data-astro-cid-j7pv25f6>Resources</h3> <ul class="space-y-2" data-astro-cid-j7pv25f6> <li data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Documentation</a> </li> <li data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Security</a> </li> <li data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Support</a> </li> </ul> </div> <div data-astro-cid-j7pv25f6> <h3 class="font-bold text-stone-900 text-base mb-3" data-astro-cid-j7pv25f6>Contact</h3> <ul class="space-y-2" data-astro-cid-j7pv25f6> <li data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Sales</a> </li> <li data-astro-cid-j7pv25f6> <a href="#" class="text-stone-600 hover:text-stone-900 text-base" data-astro-cid-j7pv25f6>Help center</a> </li> </ul> </div> </div> </div> </footer> </body></html>
